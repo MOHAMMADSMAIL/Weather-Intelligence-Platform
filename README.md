@@ -19,6 +19,89 @@ A full stack weather application built for the AI Engineer Intern technical asse
 - Database: SQLite (development), easy to migrate to PostgreSQL
 - External APIs: Open-Meteo, OpenStreetMap Nominatim, and Google Maps location links
 
+## UML Class Diagram
+
+```mermaid
+classDiagram
+  class WeatherRequest {
+    +int id
+    +str location
+    +float latitude
+    +float longitude
+    +datetime request_date
+    +date start_date
+    +date end_date
+    +float temperature
+    +float humidity
+    +float wind_speed
+    +str weather_condition
+    +Text forecast_data
+  }
+
+  class ForecastDay {
+    +str date
+    +float max_temp
+    +float min_temp
+    +float precipitation_probability
+    +str condition
+  }
+
+  class WeatherResponse {
+    +str location
+    +float latitude
+    +float longitude
+    +float temperature
+    +float humidity
+    +float wind_speed
+    +str weather_condition
+    +float precipitation_probability
+    +list forecast
+    +str map_url
+    +str map_provider
+  }
+
+  class WeatherRequestCreate {
+    +str location
+    +date start_date
+    +date end_date
+  }
+
+  class WeatherRequestUpdate {
+    +str location
+    +date start_date
+    +date end_date
+  }
+
+  class WeatherRequestOut {
+    +int id
+    +str location
+    +float latitude
+    +float longitude
+    +datetime request_date
+    +date start_date
+    +date end_date
+    +float temperature
+    +float humidity
+    +float wind_speed
+    +str weather_condition
+    +list forecast_data
+  }
+
+  class AssistantRequest {
+    +str question
+    +dict weather_data
+  }
+
+  class AssistantResponse {
+    +str recommendation
+  }
+
+  WeatherRequest <|-- WeatherRequestCreate
+  WeatherRequest <|-- WeatherRequestUpdate
+  WeatherRequest <|-- WeatherRequestOut
+  WeatherResponse --> ForecastDay
+```
+
 ## Installation
 
 ### Backend
@@ -72,3 +155,5 @@ A full stack weather application built for the AI Engineer Intern technical asse
 - Add Google Maps or YouTube integrations
 - Improve UI design and add animations
 - Add request validation and detailed forecast graphs
+
+
