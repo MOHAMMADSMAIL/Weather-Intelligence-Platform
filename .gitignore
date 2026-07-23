@@ -1,2 +1,28 @@
+# Node
 node_modules/
-.env
+/frontend/node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+.venv/
+.venv-*/
+
+# SQLite
+*.db
+backend/weather.db
+
+# Ignore AI workspace artifacts
+ai_engine/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Build
+frontend/dist/
