@@ -1,60 +1,240 @@
+
 # Weather Intelligence Platform 🌦️
 
-## About PM Accelerator
+A full-stack weather application built for the **AI Engineer Intern Technical Assessment**.
 
-**Product Manager Accelerator (PMA)** is a US-based company and 
-award-winning AI learning and development hub, featuring mentors 
-from top-tier companies such as Google, Meta, Apple, and Nvidia.
+Developed by:
 
-PMA's mission is to empower the next generation of AI and product 
-professionals through hands-on experience, mentorship, and 
-real-world projects. Their AI PM Bootcamp helps students land 
-product and engineering roles at FAANG companies and top tech 
-startups. PMA also runs PMA Kids, a nonprofit offering free AI 
-Bootcamp training to underserved communities worldwide.
-
-🔗 LinkedIn: https://www.linkedin.com/company/product-manager-accelerator/
+**Mohammad Ismail**  
+Artificial Intelligence & Data Science Student  
+Al-Zarqa Private University, Jordan
 
 ---
 
-## Project Overview
+# About PM Accelerator
 
-A full stack weather application built by **Mohammad Mohsen Ismail 
-Ismail** as part of the PM Accelerator AI Engineer Intern Technical 
-Assessment.
+**Product Manager Accelerator (PMA)** is a US-based company and AI learning and development hub that provides practical training, mentorship, and real-world projects for future AI and product professionals.
 
-The platform allows users to search for real-time weather data 
-worldwide, save and manage weather requests, and export weather 
-records in multiple formats.
+PMA's mission is to empower the next generation of technology professionals through hands-on experience, industry mentorship, and practical projects that help students develop the skills required for AI, product, and engineering careers.
 
----
-
-## Features
-
-- Search weather worldwide by city, postal code, landmark, or 
-  GPS coordinates
-- Retrieve real-time weather data from Open-Meteo API
-- Geocode locations using OpenStreetMap Nominatim
-- Store weather requests and results in SQLite
-- Full CRUD operations for saved weather requests
-- Export saved weather data as JSON, CSV, and PDF
-- AI assistant that gives clothing recommendations based on weather
+LinkedIn:
+https://www.linkedin.com/company/product-manager-accelerator/
 
 ---
 
-## Architecture
+# Assessment Completed
 
-- **Backend:** Python FastAPI, SQLAlchemy, Pydantic
-- **Frontend:** React + Vite
-- **Database:** SQLite (development), easy to migrate to PostgreSQL
-- **External APIs:** Open-Meteo, OpenStreetMap Nominatim, 
-  Google Maps location links
+This project completes both:
 
----
+- ✅ Tech Assessment #1 - Frontend Engineer
+- ✅ Tech Assessment #2 - Backend Engineer
 
-## Project Structure
+The project was developed as a full-stack weather platform combining:
+
+- Frontend development
+- Backend REST API development
+- Database management
+- External API integration
+- CRUD operations
+- Data export functionality
+
+
+# Project Overview
+
+Weather Intelligence Platform is a full-stack weather application that allows users to search for real-time weather information worldwide.
+
+Users can search using:
+
+- City names
+- Postal codes
+- Landmarks
+- GPS coordinates
+
+The system validates user input, retrieves weather data from external APIs, stores weather requests in a database, allows users to manage saved records, and provides weather-based recommendations.
+
+
+# Features
+
+## Weather Search
+
+- Search weather worldwide by city, postal code, landmark, or GPS coordinates.
+- Retrieve real-time weather information.
+- Display:
+
+  - Current temperature
+  - Humidity
+  - Wind speed
+  - Weather condition
+  - Precipitation probability
+  - Five-day forecast
+
+
+## Location Services
+
+- Convert location names into coordinates using OpenStreetMap Nominatim API.
+- Support GPS-based weather searching.
+
+
+## Database Management
+
+The application uses SQLite for data persistence.
+
+Implemented CRUD operations:
+
+- Create weather requests
+- Read saved weather requests
+- Update weather records
+- Delete weather records
+
+
+## Data Export
+
+Users can export stored weather data into:
+
+- JSON
+- CSV
+- PDF
+
+
+## Weather Assistant
+
+A simple AI-style assistant provides weather recommendations.
+
+The assistant analyzes weather conditions and gives suggestions such as clothing recommendations.
+
+
+# Architecture
+
+```
+
+Frontend (React + Vite)
+    |
+    |
+  Axios
+
+    |
+    |
+Backend (FastAPI)
+    |
+    |
+Database (SQLite)
+```
+    |
+    |
+```
+External APIs
+(Open-Meteo + OpenStreetMap)
+
+```
+
+
+# Technology Stack
+
+
+## Backend
+
+- Python
+- FastAPI
+- SQLAlchemy
+- Pydantic
+- SQLite
+
+
+## Frontend
+
+- React
+- Vite
+- JavaScript
+- Axios
+- React Router
+
+
+## External APIs
+
+### Open-Meteo API
+
+Used for:
+
+- Current weather information
+- Temperature
+- Humidity
+- Wind speed
+- Five-day forecast
+
+
+### OpenStreetMap Nominatim API
+
+Used for:
+
+- Location searching
+- Geocoding
+- Converting location names into coordinates
+
+
+### Google Maps
+
+Used for:
+
+- Generating location map links
+
+
+# Project Structure
+
+```
+
+Weather-Intelligence-Platform
+
+│
+├── backend
+│   ├── main.py
+│   ├── database.py
+│   ├── models.py
+│   ├── schemas.py
+│   ├── crud.py
+│   │
+│   ├── services
+│   │   ├── weather_service.py
+│   │   ├── geocoding_service.py
+│   │   ├── export_service.py
+│   │   ├── assistant_service.py
+│   │   └── maps_service.py
+│   │
+│   ├── tests
+│   │   └── test_api.py
+│   │
+│   └── requirements.txt
+│
+├── frontend
+│   ├── src
+│   │   ├── pages
+│   │   │   ├── HomePage.jsx
+│   │   │   ├── HistoryPage.jsx
+│   │   │   ├── ExportPage.jsx
+│   │   │   └── AssistantPage.jsx
+│   │   │
+│   │   ├── services
+│   │   │   └── api.js
+│   │   │
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── styles.css
+│   │
+│   ├── package.json
+│   └── vite.config.js
+│
+├── docs
+├── README.md
+└── .env.example
+
+````
+
+
+# UML Class Diagram
+
+```mermaid
 classDiagram
-  class WeatherRequest {
+
+class WeatherRequest {
     +int id
     +str location
     +float latitude
@@ -67,17 +247,17 @@ classDiagram
     +float wind_speed
     +str weather_condition
     +Text forecast_data
-  }
+}
 
-  class ForecastDay {
+class ForecastDay {
     +str date
     +float max_temp
     +float min_temp
     +float precipitation_probability
     +str condition
-  }
+}
 
-  class WeatherResponse {
+class WeatherResponse {
     +str location
     +float latitude
     +float longitude
@@ -89,21 +269,21 @@ classDiagram
     +list forecast
     +str map_url
     +str map_provider
-  }
+}
 
-  class WeatherRequestCreate {
+class WeatherRequestCreate {
     +str location
     +date start_date
     +date end_date
-  }
+}
 
-  class WeatherRequestUpdate {
+class WeatherRequestUpdate {
     +str location
     +date start_date
     +date end_date
-  }
+}
 
-  class WeatherRequestOut {
+class WeatherRequestOut {
     +int id
     +str location
     +float latitude
@@ -116,93 +296,260 @@ classDiagram
     +float wind_speed
     +str weather_condition
     +list forecast_data
-  }
+}
 
-  class AssistantRequest {
+class AssistantRequest {
     +str question
     +dict weather_data
-  }
+}
 
-  class AssistantResponse {
+class AssistantResponse {
     +str recommendation
-  }
+}
 
-  WeatherRequest <|-- WeatherRequestCreate
-  WeatherRequest <|-- WeatherRequestUpdate
-  WeatherRequest <|-- WeatherRequestOut
-  WeatherResponse --> ForecastDay
 
----
+WeatherRequest <|-- WeatherRequestCreate
+WeatherRequest <|-- WeatherRequestUpdate
+WeatherRequest <|-- WeatherRequestOut
 
-## Installation and Running
+WeatherResponse --> ForecastDay
+````
 
-### Backend
+# Backend Responsibilities
 
-1. Create and activate a Python virtual environment:
+## main.py
+
+The main FastAPI entry point.
+
+Responsible for:
+
+* Creating API endpoints
+* Handling HTTP requests
+* Connecting services
+* Returning responses
+
+## database.py
+
+Responsible for database configuration.
+
+Contains:
+
+* SQLAlchemy engine
+* Database session
+* Base configuration
+
+## models.py
+
+Defines database tables.
+
+Main model:
+
+`WeatherRequest`
+
+Stores:
+
+* Location
+* Coordinates
+* Weather information
+* Forecast data
+* Request dates
+
+## schemas.py
+
+Handles data validation using Pydantic.
+
+Responsible for:
+
+* Request validation
+* Response formatting
+* Data structure checking
+
+## crud.py
+
+Contains database operations:
+
+* Create
+* Read
+* Update
+* Delete
+
+## weather_service.py
+
+Handles Open-Meteo API communication.
+
+Responsible for:
+
+* Fetching weather data
+* Processing forecast
+* Formatting API response
+
+## geocoding_service.py
+
+Handles location conversion.
+
+Responsible for:
+
+* Receiving location input
+* Returning latitude and longitude
+
+## export_service.py
+
+Creates exported files:
+
+* JSON
+* CSV
+* PDF
+
+## assistant_service.py
+
+Provides weather recommendations based on weather conditions.
+
+## maps_service.py
+
+Creates map URLs for locations.
+
+# Frontend Responsibilities
+
+## App.jsx
+
+Main application structure.
+
+Responsible for:
+
+* Routing
+* Navigation
+
+## main.jsx
+
+Starts React application.
+
+## api.js
+
+Central API communication file.
+
+Responsible for:
+
+* Axios requests
+* Backend communication
+
+## HomePage.jsx
+
+Main weather page.
+
+Features:
+
+* Search location
+* GPS location
+* Display weather
+* Save requests
+
+## HistoryPage.jsx
+
+Shows saved weather history.
+
+Features:
+
+* Read data
+* Update records
+* Delete records
+
+## ExportPage.jsx
+
+Allows downloading:
+
+* JSON
+* CSV
+* PDF
+
+## AssistantPage.jsx
+
+Displays weather recommendations.
+
+# API Endpoints
+
+| Method | Endpoint            | Description                  |
+| ------ | ------------------- | ---------------------------- |
+| GET    | /weather/{location} | Fetch weather                |
+| GET    | /weather            | Fetch weather by coordinates |
+| POST   | /requests           | Create request               |
+| GET    | /requests           | Read requests                |
+| GET    | /requests/{id}      | Read one request             |
+| PUT    | /requests/{id}      | Update request               |
+| DELETE | /requests/{id}      | Delete request               |
+| GET    | /export/json        | Export JSON                  |
+| GET    | /export/csv         | Export CSV                   |
+| GET    | /export/pdf         | Export PDF                   |
+| POST   | /assistant          | Weather recommendation       |
+
+# Installation
+
+## Backend
+
+Create virtual environment:
+
 ```bash
 python -m venv venv
-venv\Scripts\activate  # Windows
 ```
 
-2. Install dependencies:
+Activate:
+
+```bash
+venv\Scripts\activate
+```
+
+Install dependencies:
+
 ```bash
 pip install -r backend/requirements.txt
 ```
 
-3. Run backend server:
+Run:
+
 ```bash
 uvicorn backend.main:app --reload --port 8000
 ```
 
-### Frontend
+## Frontend
 
-1. Change into the frontend directory:
+Enter frontend folder:
+
 ```bash
 cd frontend
 ```
 
-2. Install dependencies:
+Install packages:
+
 ```bash
 npm install
 ```
 
-3. Run the app:
+Run:
+
 ```bash
 npm run dev
 ```
 
----
+# Notes
 
-## API Endpoints
+* Backend runs on:
 
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/weather/{location}` | Fetch real-time weather |
-| POST | `/requests` | Save a weather request |
-| GET | `/requests` | List all saved requests |
-| GET | `/requests/{id}` | Get a specific request |
-| PUT | `/requests/{id}` | Update a request |
-| DELETE | `/requests/{id}` | Delete a request |
-| GET | `/export/json` | Export as JSON |
-| GET | `/export/csv` | Export as CSV |
-| GET | `/export/pdf` | Export as PDF |
-| POST | `/assistant` | Get AI weather recommendation |
+```
+http://localhost:8000
+```
 
----
+* All weather data is retrieved dynamically from APIs.
+* No static weather information is used.
+* SQLite can be migrated to PostgreSQL for production.
 
-## Author
+# Future Improvements
 
-**Mohammad Mohsen Ismail Ismail**
-Artificial Intelligence & Data Science Student
-Al-Zarqa Private University, Jordan
-AWS Certified AI Practitioner (AIF-C01)
+* Add authentication.
+* Add user-specific history.
+* Add weather alerts.
+* Add advanced AI weather prediction.
+* Improve UI animations.
+* Add weather analytics dashboard.
 
----
+```
 
-## Notes
-
-- The frontend assumes backend API is available at 
-  `http://localhost:8000`
-- All weather data is fetched dynamically from public APIs
-- No static data is used in this application
-
+```
