@@ -22,12 +22,12 @@ https://www.linkedin.com/company/product-manager-accelerator/
 
 ---
 
-# Assessment Completed
+# Completed
 
 This project completes both:
 
-- ✅ Tech Assessment #1 - Frontend Engineer
-- ✅ Tech Assessment #2 - Backend Engineer
+- ✅ #1 - Frontend Engineer
+- ✅ #2 - Backend Engineer
 
 The project was developed as a full-stack weather platform combining:
 
